@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'Moe.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'Moe (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -88,3 +88,27 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+ITEM_PIPELINES = {
+    # 引入Scrapy提供的ImagesPipeline组件
+    'scrapy.pipelines.images.ImagesPipeline': 300,
+}
+# ImagesPipeline辅助配置项
+# 图片存储路径(绝对路径 or 相对路径)
+IMAGES_STORE = 'pictures'
+# 该字段的值为XxxItem中定义的存储图片链接的image_urls字段
+IMAGES_URLS_FIELD='img_url'
+# 该字段的值为XxxItem中定义的存储图片信息的images字段
+IMAGES_RESULT_FIELD='images'
+# 生成缩略图(可选)
+# IMAGES_THUMBS = {
+#     'small': (50, 50),
+#     'big': (270, 270),
+# }
+# 过期时间,单位:天(可选)
+#IMAGES_EXPIRES = 120
+# 过滤小图片(可选)
+# IMAGES_MIN_HEIGHT = 110
+# IMAGES_MIN_WIDTH = 110
+# 是否允许重定向(可选)
+# MEDIA_ALLOW_REDIRECTS = True
