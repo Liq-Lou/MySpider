@@ -8,7 +8,7 @@
 import scrapy
 
 
-class YanreItem(scrapy.Item):
+class MoeItem(scrapy.Item):
     # define the fields for your item here like:
 
     images = scrapy.Field()
