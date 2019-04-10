@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from ..items import YanreItem
+from ..items import MoeItem
 
 class Spider1Spider(scrapy.Spider):
     name = 'moe'
